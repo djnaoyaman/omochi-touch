@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://djnaoyaman.github.io/omochi-touch/sitemap.xml

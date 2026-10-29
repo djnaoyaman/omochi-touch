@@ -1,0 +1,18 @@
+# OMOCHI TOUCH — site guide
+
+Canonical URL: https://djnaoyaman.github.io/omochi-touch/
+Credit: 鎌・くらんぽのクランポック
+Credit website: https://djnaoyaman.github.io/kuranpo/
+Language: Japanese
+
+OMOCHI TOUCH is an interactive art playground centered on the user's real white Westie, OMOCHI. Choose a cutout or a framed photograph, choose an original procedural art background and palette, and compose multiple photographs. One pointer moves a selected photograph; two pointers resize and rotate. Size and rotation sliders are above the artwork. The original left-cropped face photograph is constrained to the left edge and cannot rotate. Undo, duplicate, layering, deletion and reset are supported.
+
+The site exports a 2000 by 2500 pixel still PNG. Music and editor controls are not included in the image. Composition data stays in localStorage in the current browser. There is no server upload or cross-device sync. The optional share action shares the site URL, not the local composition.
+
+The three music collections are CRATE DIGGIN’, Premium Cuts Listed, and SUBURBIA CLASSICA, with ten existing published selections from each. YouTube plays in a visible native iframe; autoplay is disabled. Use the native play button. The previous/next buttons cycle within the selected collection. Playback may be unavailable because of rights, location, browser or account restrictions. Original record pages and direct YouTube links are provided. YouTube Premium behavior depends on account sign-in and playback environment.
+
+Short optional UI sounds are synthesized locally and have an independent ON/OFF setting. An explicit sound-test control is available. Device volume, silent mode and browser audio policies may affect audibility.
+
+All art templates are original compositions inspired by geometric, optical and organic design principles. Names referencing art movements do not imply institutional endorsement or official collaboration. Photographs are non-generatively color-adjusted and masked, not AI-redrawn. Copyright remains with the respective owners; public repository access is not a license to reuse photographs.
+
+No analytics or advertising tag is installed. No advertising campaign, paid placement or search-console registration is performed by this static site. The manifest provides icons and a home-screen name; offline use is not guaranteed and no service worker is installed.

@@ -1,0 +1,9 @@
+# OMOCHI TOUCH
+
+> A browser-local art playground featuring original photographs of OMOCHI, a white West Highland White Terrier. Art direction and credit: 鎌・くらんぽのクランポック.
+
+- [Official app](https://djnaoyaman.github.io/omochi-touch/): Select OMOCHI photos, original geometric backgrounds and colors; arrange, resize and rotate photographs; export a still PNG.
+- [Full site guide](https://djnaoyaman.github.io/omochi-touch/llms-full.txt)
+- [Credit](https://djnaoyaman.github.io/kuranpo/)
+
+Artwork is original and inspired by art movements, not an official museum or organization collaboration. Photos retain the original dog's identity through non-generative masking and color correction. Compositions remain in the visitor's browser. Embedded music comes from YouTube; availability varies. No analytics tag is installed. This file is an optional discovery aid, not a guarantee of AI indexing or citation.
