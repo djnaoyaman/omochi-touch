@@ -10,46 +10,22 @@ window.MUSIC = [
         "url": "https://djnaoyaman.github.io/cratediggin/songs/can-i-kick-it.html"
       },
       {
-        "title": "Mass Appeal",
-        "artist": "Gang Starr",
-        "youtubeId": "y9lNbNGbo24",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/mass-appeal.html"
+        "title": "San Francisco Knights",
+        "artist": "People Under the Stairs",
+        "youtubeId": "xqgJfFbOKnU",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/people-under-the-stairs-san-francisco-knights.html"
       },
       {
-        "title": "They Reminisce Over You (T.R.O.Y.)",
-        "artist": "Pete Rock & C.L. Smooth",
-        "youtubeId": "0xZHe8Q8Mlk",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/pete-rock-c-l-smooth-they-reminisce-over-you-t-r-o-y.html"
+        "title": "93 ’til Infinity",
+        "artist": "Souls of Mischief",
+        "youtubeId": "4Z0TeaTzo_U",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/93-til-infinity.html"
       },
       {
-        "title": "Stakes Is High",
-        "artist": "De La Soul",
-        "youtubeId": "Wzc5Pz3SPUE",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/de-la-soul-stakes-is-high.html"
-      },
-      {
-        "title": "Concrete Schoolyard",
-        "artist": "Jurassic 5",
-        "youtubeId": "BxhoG0t6VU0",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/jurassic-5-concrete-schoolyard.html"
-      },
-      {
-        "title": "Midnight in a Perfect World",
-        "artist": "DJ Shadow",
-        "youtubeId": "IHvRY1SC9qw",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/dj-shadow-midnight-in-a-perfect-world.html"
-      },
-      {
-        "title": "Workinonit",
-        "artist": "J Dilla",
-        "youtubeId": "ogwouE_Msd4",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/j-dilla-workinonit.html"
-      },
-      {
-        "title": "Slim's Return",
-        "artist": "Madlib",
-        "youtubeId": "78E1ZFpHOJI",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/madlib-slims-return.html"
+        "title": "Runnin’",
+        "artist": "The Pharcyde",
+        "youtubeId": "g1BQBVOVXWE",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/runnin.html"
       },
       {
         "title": "Acid Raindrops",
@@ -58,10 +34,34 @@ window.MUSIC = [
         "url": "https://djnaoyaman.github.io/cratediggin/songs/people-under-the-stairs-acid-raindrops.html"
       },
       {
-        "title": "San Francisco Knights",
-        "artist": "People Under the Stairs",
-        "youtubeId": "xqgJfFbOKnU",
-        "url": "https://djnaoyaman.github.io/cratediggin/songs/people-under-the-stairs-san-francisco-knights.html"
+        "title": "Lots of Lovin’",
+        "artist": "Pete Rock & C.L. Smooth",
+        "youtubeId": "8fU4juGF3xI",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/pete-rock-cl-smooth-lots-of-lovin.html"
+      },
+      {
+        "title": "Find a Way",
+        "artist": "A Tribe Called Quest",
+        "youtubeId": "uslaqYlXAbo",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/a-tribe-called-quest-find-a-way.html"
+      },
+      {
+        "title": "The Light",
+        "artist": "Common",
+        "youtubeId": "pK76GKkEc9o",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/common-the-light.html"
+      },
+      {
+        "title": "Feather",
+        "artist": "Nujabes",
+        "youtubeId": "hQ5x8pHoIPA",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/nujabes-feather.html"
+      },
+      {
+        "title": "Time: The Donut of the Heart",
+        "artist": "J Dilla",
+        "youtubeId": "0vmhgotEByc",
+        "url": "https://djnaoyaman.github.io/cratediggin/songs/j-dilla-time-the-donut-of-the-heart.html"
       }
     ]
   },
