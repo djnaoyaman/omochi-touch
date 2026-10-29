@@ -1,101 +1,46 @@
-/* Google tag: G-Z6WH0VTYBB (OMOCHI TOUCH only).
- * Loaded exactly once after the visitor explicitly permits analytics.
- * Unselected/declined: no Google tag request. This is intentional basic consent.
- * Text content, photos and layout coordinates are never sent.
- * Installing the tag does not prove Google-side receipt; that audit is out of scope.
+/* The exact Google tag snippet is installed once in index.html <head>.
+ * This file only manages the local opt-out preference and allowlisted events.
+ * No loader, config call or manual page_view is duplicated here.
  */
 (() => {
   "use strict";
-  const ID = "G-Z6WH0VTYBB",
-    KEY = "omochi-touch-analytics-consent",
-    URL_CANONICAL = "https://djnaoyaman.github.io/omochi-touch/",
-    status = document.getElementById("analyticsStatus"),
-    yes = document.getElementById("allowAnalytics"),
-    no = document.getElementById("denyAnalytics");
-  let choice = null,
-    started = false,
-    pageSent = false;
+  const ID = "G-Z6WH0VTYBB";
+  const KEY = "omochi-touch-analytics-consent";
+  const URL_CANONICAL = "https://djnaoyaman.github.io/omochi-touch/";
+  const status = document.getElementById("analyticsStatus");
+  const yes = document.getElementById("allowAnalytics");
+  const no = document.getElementById("denyAnalytics");
+  let choice = "yes";
   try {
-    choice = localStorage.getItem(KEY);
+    if (localStorage.getItem(KEY) === "no") choice = "no";
   } catch {}
-  if (!["yes", "no"].includes(choice)) choice = null;
-  window["ga-disable-" + ID] = choice !== "yes";
+  window["ga-disable-" + ID] = choice === "no";
   function ui() {
     yes.setAttribute("aria-pressed", String(choice === "yes"));
     no.setAttribute("aria-pressed", String(choice === "no"));
     status.textContent =
       choice === "yes"
-        ? "アクセス計測 ON（Googleへの送信を許可）"
-        : choice === "no"
-          ? "アクセス計測 OFF（許可しない）"
-          : "アクセス計測 OFF（未選択）";
-  }
-  function g() {
-    window.dataLayer.push(arguments);
-  }
-  function page() {
-    if (choice !== "yes" || pageSent) return;
-    pageSent = true;
-    g("event", "page_view", {
-      send_to: ID,
-      page_location: URL_CANONICAL,
-      page_title: "OMOCHI TOUCH",
-      page_referrer: "",
-    });
-  }
-  function start() {
-    if (started) return;
-    started = true;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || g;
-    g("consent", "default", {
-      analytics_storage: "granted",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-    });
-    g("js", new Date());
-    g("config", ID, {
-      send_page_view: false,
-      allow_google_signals: false,
-      allow_ad_personalization_signals: false,
-      page_location: URL_CANONICAL,
-      page_referrer: "",
-      cookie_prefix: "omochi_touch",
-    });
-    const script = document.createElement("script");
-    script.id = "omochi-google-tag";
-    script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
-    script.onload = () => {
-      script.dataset.ready = "yes";
-      page();
-    };
-    script.onerror = () => {
-      status.textContent =
-        "計測の許可はONですが、Googleに接続できませんでした。制作機能はそのまま使えます。";
-    };
-    document.head.append(script);
+        ? "アクセス計測 ON（Googleタグ設置済み）"
+        : "アクセス計測 OFF（このブラウザでは停止）";
   }
   function set(value) {
     choice = value;
-    window["ga-disable-" + ID] = value !== "yes";
+    window["ga-disable-" + ID] = value === "no";
     try {
       localStorage.setItem(KEY, value);
     } catch {}
     ui();
-    if (value === "yes") {
-      start();
-      if (pageSent) return;
-      if (document.getElementById("omochi-google-tag")?.dataset.ready === "yes")
-        page();
-    }
   }
   yes.onclick = () => set("yes");
   no.onclick = () => set("no");
   function send(name, params = {}) {
-    if (choice !== "yes" || !started || window["ga-disable-" + ID]) return;
-    g("event", name, {
+    if (
+      choice === "no" ||
+      window["ga-disable-" + ID] ||
+      typeof window.gtag !== "function"
+    )
+      return;
+    window.gtag("event", name, {
       ...params,
       send_to: ID,
       page_location: URL_CANONICAL,
@@ -153,5 +98,4 @@
     if (a.id === "openImage") send("png_open_click");
   });
   ui();
-  if (choice === "yes") start();
 })();

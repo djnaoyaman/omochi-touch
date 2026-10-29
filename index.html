@@ -11,12 +11,35 @@
     <link rel="stylesheet" href="style.css?v=20261029-14" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' https://www.youtube.com https://www.googletagmanager.com 'sha256-J+r1UJ6Q9WfO/IqdD1duCTocOBz+OaVF11JnQKe06K4='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'none'"
+      content="default-src 'self'; script-src 'self' https://www.youtube.com https://www.googletagmanager.com 'sha256-Ec1Imlbk+c0eIxxPWwqwPwBGjyn3kYV1yXY3NG6+aEY=' 'sha256-F28V1XHvCzMB9n3O5Qnp8rL+038M8E7qcaIavEBefC4=' 'sha256-J+r1UJ6Q9WfO/IqdD1duCTocOBz+OaVF11JnQKe06K4='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
     <meta
       name="description"
       content="白いウェスティ、OMOCHIとつくるアート。24の造形と8つの配色、写真と音楽を自由に重ねるインタラクティブな遊び場。"
     />
+
+    <!-- Preserve an existing analytics opt-out before loading the Google tag. -->
+    <script>
+      try {
+        window['ga-disable-G-Z6WH0VTYBB'] =
+          localStorage.getItem('omochi-touch-analytics-consent') === 'no';
+      } catch (_) {}
+      window.dataLayer = window.dataLayer || [];
+      (function () { window.dataLayer.push(arguments); })('set', {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        page_location: 'https://djnaoyaman.github.io/omochi-touch/',
+        page_referrer: ''
+      });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6WH0VTYBB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z6WH0VTYBB');
+    </script>
     <link rel="canonical" href="https://djnaoyaman.github.io/omochi-touch/" />
     <meta name="robots" content="index,follow" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -283,24 +306,11 @@
       </aside>
     </main>
     <details class="analytics-choice">
-      <summary>計測とプライバシー</summary>
-      <p>
-        サイト改善のため、Google
-        Analyticsでページ閲覧や機能の利用状況を計測できます（任意）。写真・作品画像・入力した文字・配置情報は送信しません。許可しなくてもすべての制作機能を使えます。
-      </p>
-      <p>
-        許可した場合はGoogleに利用状況や端末等の情報が送信され、Cookieが使われます。広告向けの連携は無効にしています。ここからいつでも変更できます。<a
-          href="https://policies.google.com/privacy"
-          target="_blank"
-          rel="noopener"
-          >Googleのプライバシーポリシー ↗</a
-        >
-      </p>
-      <div>
-        <button id="allowAnalytics">計測を許可する</button
-        ><button id="denyAnalytics">計測を許可しない</button>
-      </div>
-      <p id="analyticsStatus" role="status">アクセス計測 OFF（未選択）</p>
+      <summary>アクセス計測とプライバシー</summary>
+      <p>Google Analytics（G-Z6WH0VTYBB）を使用し、ページ閲覧や機能の利用状況を計測します。Googleタグはページを開いた時に読み込まれ、端末等の情報やCookieが利用されます。写真・作品画像・入力した文字・配置情報は送信しません。広告向けの連携は無効です。</p>
+      <p>このブラウザの計測は下のボタンで停止・再開できます。停止しても制作機能はすべて使えます。過去に「許可しない」を選んだ設定も引き継ぎます。停止中もGoogleタグのファイル自体は読み込まれます。すでに送信されたデータはここでは削除されません。<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー ↗</a></p>
+      <div><button id="allowAnalytics">計測を再開する</button><button id="denyAnalytics">計測を停止する</button></div>
+      <p id="analyticsStatus" role="status">アクセス計測の設定を確認しています</p>
     </details>
     <section class="site-utility" aria-label="サイトの共有と使い方">
       <div>
@@ -371,6 +381,6 @@
     <script src="music.js?v=20261029-15"></script>
     <script src="sound.js?v=20261029-9"></script>
     <script src="launch.js?v=20261029-6"></script>
-    <script src="analytics.js?v=20261029-9"></script>
+    <script src="analytics.js?v=20261029-16"></script>
   </body>
 </html>

@@ -12,7 +12,7 @@ Static HTML/CSS/JavaScript; no build step. Serve this directory or enable GitHub
 
 Original outlined wordmark uses Bebas Neue and Allura under SIL OFL 1.1. License notices: `assets/BebasNeue-OFL.txt` and `assets/Allura-OFL.txt`. Photo-only home-screen icons are intentionally unchanged.
 
-Optional Google Analytics (G-Z6WH0VTYBB) loads only after visitor opt-in. Advertising signals are disabled. Only allowlisted feature events are sent, never typed text, images or placement coordinates. PNG generation and download clicks are distinct; music selections are not playback confirmation. Step-specific UI sounds are automatic, with a global ON/OFF control.
+The user-provided Google tag (G-Z6WH0VTYBB) is directly installed in the HTML head. The script loads on page open; a browser-local opt-out disables analytics collection, and existing declined preferences are retained. Advertising signals are disabled. Only allowlisted feature events are sent, never typed text, images or placement coordinates. PNG generation and download clicks are distinct; music selections are not playback confirmation. Step-specific UI sounds are automatic, with a global ON/OFF control.
 
 Precise small cutouts have per-asset size caps to protect source detail (the added N05 and N04 silhouettes are limited to approximately280CSSpx on its longest side at the maximum canvas display size).
 
