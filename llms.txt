@@ -6,4 +6,4 @@
 - [Full site guide](https://djnaoyaman.github.io/omochi-touch/llms-full.txt)
 - [Credit](https://djnaoyaman.github.io/kuranpo/)
 
-Artwork is original and inspired by art movements, not an official museum or organization collaboration. Photos retain the original dog's identity through non-generative masking and color correction. Compositions remain in the visitor's browser. Embedded music comes from YouTube; availability varies. No analytics tag is installed. This file is an optional discovery aid, not a guarantee of AI indexing or citation.
+Artwork is original and inspired by art movements, not an official museum or organization collaboration. Photos retain the original dog's identity through non-generative masking and color correction. Compositions remain in the visitor's browser. Embedded music comes from YouTube; availability varies. Google Analytics is optional and loads only after visitor opt-in. Typed text, photograph contents and compositions are not sent. This file is an optional discovery aid, not a guarantee of AI indexing or citation.

@@ -11,3 +11,5 @@ Artwork is independently created, inspired by artistic movements; no official mu
 Static HTML/CSS/JavaScript; no build step. Serve this directory or enable GitHub Pages from the repository root.
 
 Original outlined wordmark uses Bebas Neue and Allura under SIL OFL 1.1. License notices: `assets/BebasNeue-OFL.txt` and `assets/Allura-OFL.txt`. Photo-only home-screen icons are intentionally unchanged.
+
+Optional Google Analytics (G-Z6WH0VTYBB) loads only after visitor opt-in. Advertising signals are disabled. Only allowlisted feature events are sent, never typed text, images or placement coordinates. PNG generation and download clicks are distinct; music selections are not playback confirmation. Step-specific UI sounds are automatic, with a global ON/OFF control.
