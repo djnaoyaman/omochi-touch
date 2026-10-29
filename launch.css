@@ -274,34 +274,41 @@ header > .export {
   }
 }
 
-.analytics-choice {
-  margin: 0 3vw;
-  padding: 20px 0;
-  border-top: 1px solid var(--line);
-  font-size: 12px;
-  line-height: 1.8;
+/* Quiet footer disclosure: no banner or separate full-width panel. */
+.footer-credit {
+  max-width: 340px;
+  min-width: 170px;
 }
-.analytics-choice summary {
+footer .analytics-choice {
+  margin: 4px 0 0;
+  padding: 0;
+  border: 0;
+  font-size: 11px;
+  line-height: 1.7;
+}
+footer .analytics-choice summary {
   cursor: pointer;
   min-height: 44px;
   display: flex;
   align-items: center;
+  width: fit-content;
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 3px;
 }
-.analytics-choice p {
-  max-width: 680px;
+footer .analytics-choice p {
+  margin: 8px 0;
 }
-.analytics-choice button {
+footer .analytics-choice button {
   min-height: 44px;
-  padding: 10px 16px;
+  padding: 8px 10px;
+  margin: 0 6px 0 0;
+  font-size: 11px;
   border: 1px solid var(--line);
-  margin: 4px 8px 4px 0;
 }
-.analytics-choice button[aria-pressed="true"] {
-  background: var(--ink);
-  color: white;
+footer .analytics-choice button[aria-pressed="true"] {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-.analytics-choice a {
+footer .analytics-choice a {
   color: inherit;
 }

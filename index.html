@@ -88,7 +88,7 @@
     <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#4c1269" />
     <link rel="manifest" href="site.webmanifest" />
     <meta name="apple-mobile-web-app-title" content="OMOCHI" />
-    <link rel="stylesheet" href="launch.css?v=20261029-9" />
+    <link rel="stylesheet" href="launch.css?v=20261029-17" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -305,13 +305,7 @@
         </p>
       </aside>
     </main>
-    <details class="analytics-choice">
-      <summary>アクセス計測とプライバシー</summary>
-      <p>Google Analytics（G-Z6WH0VTYBB）を使用し、ページ閲覧や機能の利用状況を計測します。Googleタグはページを開いた時に読み込まれ、端末等の情報やCookieが利用されます。写真・作品画像・入力した文字・配置情報は送信しません。広告向けの連携は無効です。</p>
-      <p>このブラウザの計測は下のボタンで停止・再開できます。停止しても制作機能はすべて使えます。過去に「許可しない」を選んだ設定も引き継ぎます。停止中もGoogleタグのファイル自体は読み込まれます。すでに送信されたデータはここでは削除されません。<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー ↗</a></p>
-      <div><button id="allowAnalytics">計測を再開する</button><button id="denyAnalytics">計測を停止する</button></div>
-      <p id="analyticsStatus" role="status">アクセス計測の設定を確認しています</p>
-    </details>
+
     <section class="site-utility" aria-label="サイトの共有と使い方">
       <div>
         <button id="shareSite">サイトを共有 ↗</button
@@ -344,22 +338,20 @@
       </p></noscript
     >
     <footer>
-      <span
-        ><img
-          class="footer-wordmark"
-          src="assets/omochi-touch-header-purple.svg"
-          width="640"
-          height="294"
-          alt="OMOCHI TOUCH" /></span
-      ><span
-        >ART DIRECTION & LOVE<br /><a
-          href="https://djnaoyaman.github.io/kuranpo/"
-          target="_blank"
-          rel="noopener"
-          class="credit-link"
-          >鎌・くらんぽのクランポック ↗</a
-        ></span
-      ><span>MADE TO BE PLAYED WITH.<br />NOT TO BE PERFECT.</span>
+      <span><img class="footer-wordmark" src="assets/omochi-touch-header-purple.svg" width="640" height="294" alt="OMOCHI TOUCH" /></span>
+      <div class="footer-credit">
+        ART DIRECTION & LOVE<br />
+        <a href="https://djnaoyaman.github.io/kuranpo/" target="_blank" rel="noopener" class="credit-link">鎌・くらんぽのクランポック ↗</a>
+        <details class="analytics-choice">
+          <summary>プライバシー</summary>
+          <p>利用状況の把握にGoogle Analyticsを使用します。写真・入力した文字・作品は送信しません。広告向け連携は無効です。</p>
+          <p>このブラウザの計測は停止できます。停止中もGoogleタグは読み込まれますが、制作機能に影響はありません。過去に送信したデータは削除されません。</p>
+          <div><button id="allowAnalytics">計測を再開</button><button id="denyAnalytics">計測を停止</button></div>
+          <p id="analyticsStatus" role="status">設定を確認しています</p>
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー ↗</a>
+        </details>
+      </div>
+      <span>MADE TO BE PLAYED WITH.<br />NOT TO BE PERFECT.</span>
     </footer>
     <dialog id="downloadDialog">
       <button id="closeDialog" class="close" aria-label="閉じる">×</button>
