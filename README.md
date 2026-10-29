@@ -1,6 +1,6 @@
 # OMOCHI TOUCH
 
-An interactive art playground featuring OMOCHI. Twenty-four original procedural art series, eight palettes, four photographic cutouts and fifteen framed photographs. Arrange, pinch to resize, twist to rotate and layer images; compositions stay in the browser and can be exported as PNG.
+An interactive art playground featuring OMOCHI. Twenty-four original procedural art series, eight palettes, four photographic cutouts and twenty-four framed photographs. Arrange, pinch to resize, twist to rotate and layer images; compositions stay in the browser and can be exported as PNG.
 
 Includes thirty selections from CRATE DIGGIN’, Premium Cuts Listed and SUBURBIA CLASSICA. A visible YouTube player loads without autoplay; playback starts when the visitor taps its native play button. Images are not uploaded. Music is not included in PNG exports.
 
