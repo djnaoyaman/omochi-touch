@@ -1,1 +1,130 @@
-(()=>{'use strict';const button=document.getElementById('sfxToggle'),test=document.getElementById('sfxTest'),status=document.getElementById('sfxStatus');let enabled=true,context=null,last=0,generation=0;try{enabled=localStorage.getItem('omochi-touch-sfx')!=='off'}catch{}const profiles={photo_add:[[659,880],'sine',.18],layer_duplicate:[[659,880],'sine',.18],art_select:[[392,523],'triangle',.17],palette_select:[[784],'sine',.13],transform_end:[[523],'sine',.08],text_add:[[698,831],'triangle',.12],text_update:[[698],'triangle',.1],export_generated:[[523,659,784],'sine',.2],test:[[659,523,784],'sine',.18]};function tell(t){status.textContent=t}function update(){button.textContent='操作音 '+(enabled?'ON':'OFF');button.setAttribute('aria-pressed',String(enabled))}function arm(){if(!enabled)return;try{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;if(!context||context.state==='closed')context=new Audio();if(context.state!=='running')return Promise.resolve(context.resume())}catch{}}function sound(kind,manual=false){if(!enabled){if(manual)tell('操作音はOFFです。ONにしてから「音を試す」をタップしてください。');return}const profile=profiles[kind];if(!profile)return;const now=Date.now();if(!manual&&now-last<80)return;last=now;const ticket=generation;try{const pending=arm();const schedule=()=>{if(!enabled||ticket!==generation)return;if(!context||context.state!=='running'){if(manual)tell('音声を開始できませんでした。もう一度タップしてお試しください。');return}const [notes,wave,duration]=profile,t=context.currentTime;notes.forEach((f,i)=>{const o=context.createOscillator(),g=context.createGain(),at=t+i*.07;o.type=wave;o.frequency.setValueAtTime(f,at);o.frequency.exponentialRampToValueAtTime(f*.86,at+duration*.7);g.gain.setValueAtTime(0,at);g.gain.linearRampToValueAtTime(wave==='triangle'?.04:.055,at+.008);g.gain.exponentialRampToValueAtTime(.0001,at+duration*.9);o.connect(g);g.connect(context.destination);o.start(at);o.stop(at+duration)});if(manual)tell('制作ステップごとの音を試聴しました。聞こえない場合は端末の音量・消音設定をご確認ください。')};if(pending)pending.then(schedule).catch(()=>{if(manual)tell('音声を再開できませんでした。もう一度タップしてください。')});else schedule()}catch{if(manual)tell('音声を利用できませんでした。編集はそのまま続けられます。')}}button.onclick=()=>{enabled=!enabled;generation++;try{localStorage.setItem('omochi-touch-sfx',enabled?'on':'off')}catch{}update();if(enabled)sound('transform_end',true);else{if(context?.state==='running')context.suspend?.().catch(()=>{});tell('操作音をOFFにしました。音楽の設定は変わりません。')}};test.onclick=()=>sound('test',true);document.addEventListener('pointerdown',event=>{if(event.target.closest('button,canvas,input'))arm()?.catch(()=>{})},{passive:true});document.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key))arm()?.catch(()=>{})});document.addEventListener('omochi-action',event=>sound(event.detail?.name));update()})();
+(() => {
+  "use strict";
+  const button = document.getElementById("sfxToggle"),
+    test = document.getElementById("sfxTest"),
+    status = document.getElementById("sfxStatus");
+  let enabled = true,
+    context = null,
+    last = 0,
+    generation = 0;
+  try {
+    enabled = localStorage.getItem("omochi-touch-sfx") !== "off";
+  } catch {}
+  const profiles = {
+    photo_add: [[659, 880], "sine", 0.18],
+    layer_duplicate: [[659, 880], "sine", 0.18],
+    art_select: [[392, 523], "triangle", 0.17],
+    palette_select: [[784], "sine", 0.13],
+    transform_end: [[523], "sine", 0.08],
+    text_add: [[698, 831], "triangle", 0.12],
+    text_update: [[698], "triangle", 0.1],
+    export_generated: [[523, 659, 784], "sine", 0.2],
+    test: [[659, 523, 784], "sine", 0.18],
+  };
+  function tell(t) {
+    status.textContent = t;
+  }
+  function update() {
+    button.textContent = "操作音 " + (enabled ? "ON" : "OFF");
+    button.setAttribute("aria-pressed", String(enabled));
+  }
+  function arm() {
+    if (!enabled) return;
+    try {
+      const Audio = window.AudioContext || window.webkitAudioContext;
+      if (!Audio) return;
+      if (!context || context.state === "closed") context = new Audio();
+      if (context.state !== "running") return Promise.resolve(context.resume());
+    } catch {}
+  }
+  function sound(kind, manual = false) {
+    if (!enabled) {
+      if (manual)
+        tell("操作音はOFFです。ONにしてから「音を試す」をタップしてください。");
+      return;
+    }
+    const profile = profiles[kind];
+    if (!profile) return;
+    const now = Date.now();
+    if (!manual && now - last < 80) return;
+    last = now;
+    const ticket = generation;
+    try {
+      const pending = arm();
+      const schedule = () => {
+        if (!enabled || ticket !== generation) return;
+        if (!context || context.state !== "running") {
+          if (manual)
+            tell(
+              "音声を開始できませんでした。もう一度タップしてお試しください。",
+            );
+          return;
+        }
+        const [notes, wave, duration] = profile,
+          t = context.currentTime;
+        notes.forEach((f, i) => {
+          const o = context.createOscillator(),
+            g = context.createGain(),
+            at = t + i * 0.07;
+          o.type = wave;
+          o.frequency.setValueAtTime(f, at);
+          o.frequency.exponentialRampToValueAtTime(
+            f * 0.86,
+            at + duration * 0.7,
+          );
+          g.gain.setValueAtTime(0, at);
+          g.gain.linearRampToValueAtTime(
+            wave === "triangle" ? 0.04 : 0.055,
+            at + 0.008,
+          );
+          g.gain.exponentialRampToValueAtTime(0.0001, at + duration * 0.9);
+          o.connect(g);
+          g.connect(context.destination);
+          o.start(at);
+          o.stop(at + duration);
+        });
+        if (manual)
+          tell(
+            "制作ステップごとの音を試聴しました。聞こえない場合は端末の音量・消音設定をご確認ください。",
+          );
+      };
+      if (pending)
+        pending.then(schedule).catch(() => {
+          if (manual)
+            tell("音声を再開できませんでした。もう一度タップしてください。");
+        });
+      else schedule();
+    } catch {
+      if (manual)
+        tell("音声を利用できませんでした。編集はそのまま続けられます。");
+    }
+  }
+  button.onclick = () => {
+    enabled = !enabled;
+    generation++;
+    try {
+      localStorage.setItem("omochi-touch-sfx", enabled ? "on" : "off");
+    } catch {}
+    update();
+    if (enabled) sound("transform_end", true);
+    else {
+      if (context?.state === "running") context.suspend?.().catch(() => {});
+      tell("操作音をOFFにしました。音楽の設定は変わりません。");
+    }
+  };
+  test.onclick = () => sound("test", true);
+  document.addEventListener(
+    "pointerdown",
+    (event) => {
+      if (event.target.closest("button,canvas,input")) arm()?.catch(() => {});
+    },
+    { passive: true },
+  );
+  document.addEventListener("keydown", (event) => {
+    if (["Enter", " "].includes(event.key)) arm()?.catch(() => {});
+  });
+  document.addEventListener("omochi-action", (event) =>
+    sound(event.detail?.name),
+  );
+  update();
+})();

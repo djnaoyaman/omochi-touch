@@ -1,1 +1,157 @@
-(()=>{'use strict';const ID='G-Z6WH0VTYBB',KEY='omochi-touch-analytics-consent',URL_CANONICAL='https://djnaoyaman.github.io/omochi-touch/',status=document.getElementById('analyticsStatus'),yes=document.getElementById('allowAnalytics'),no=document.getElementById('denyAnalytics');let choice=null,started=false,pageSent=false;try{choice=localStorage.getItem(KEY)}catch{}if(!['yes','no'].includes(choice))choice=null;window['ga-disable-'+ID]=choice!=='yes';function ui(){yes.setAttribute('aria-pressed',String(choice==='yes'));no.setAttribute('aria-pressed',String(choice==='no'));status.textContent=choice==='yes'?'アクセス計測 ON（Googleへの送信を許可）':choice==='no'?'アクセス計測 OFF（許可しない）':'アクセス計測 OFF（未選択）'}function g(){window.dataLayer.push(arguments)}function page(){if(choice!=='yes'||pageSent)return;pageSent=true;g('event','page_view',{send_to:ID,page_location:URL_CANONICAL,page_title:'OMOCHI TOUCH',page_referrer:''})}function start(){if(started)return;started=true;window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||g;g('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});g('js',new Date());g('config',ID,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:URL_CANONICAL,page_referrer:'',cookie_prefix:'omochi_touch'});const script=document.createElement('script');script.id='omochi-google-tag';script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+ID;script.onload=()=>{script.dataset.ready='yes';page()};script.onerror=()=>{status.textContent='計測の許可はONですが、Googleに接続できませんでした。制作機能はそのまま使えます。'};document.head.append(script)}function set(value){choice=value;window['ga-disable-'+ID]=value!=='yes';try{localStorage.setItem(KEY,value)}catch{}ui();if(value==='yes'){start();if(pageSent)return;if(document.getElementById('omochi-google-tag')?.dataset.ready==='yes')page()}}yes.onclick=()=>set('yes');no.onclick=()=>set('no');function send(name,params={}){if(choice!=='yes'||!started||window['ga-disable-'+ID])return;g('event',name,{...params,send_to:ID,page_location:URL_CANONICAL,page_referrer:''})}const ints={art_select:['art_id',0,23],palette_select:['palette_id',0,7],photo_add:['asset_id',0,99],export_generated:['item_count',0,60]};document.addEventListener('omochi-action',event=>{const d=event.detail||{},rule=ints[d.name];if(rule){const v=d[rule[0]];if(Number.isInteger(v)&&v>=rule[1]&&v<=rule[2])send(d.name,{[rule[0]]:v});return}if(['text_add','text_update','layer_duplicate'].includes(d.name))send(d.name)});document.addEventListener('change',event=>{if(event.target.id==='track')send('music_select',{selection_method:'list'})});document.addEventListener('click',event=>{const b=event.target.closest('button');if(b&&!b.disabled){if(b.closest('#musicSites'))send('music_select',{selection_method:'collection'});else if(['nextTrack','prevTrack'].includes(b.id))send('music_select',{selection_method:b.id==='nextTrack'?'next':'previous'});else if(['stopTrack','muteTrack'].includes(b.id))send('music_control',{control:b.id==='stopTrack'?'stop_request':'mute_request'});else if(b.id==='sfxToggle')send('sound_toggle',{enabled:b.getAttribute('aria-pressed')==='true'?1:0})}const a=event.target.closest('a');if(!a)return;const category={youtubeLink:'youtube',recordLink:'record',siteLink:'music_site'}[a.id]||(a.classList.contains('credit-link')?'credit':null);if(category)send('outbound_link',{destination:category});if(a.id==='downloadLink')send('png_download_click');if(a.id==='openImage')send('png_open_click')});ui();if(choice==='yes')start()})();
+/* Google tag: G-Z6WH0VTYBB (OMOCHI TOUCH only).
+ * Loaded exactly once after the visitor explicitly permits analytics.
+ * Unselected/declined: no Google tag request. This is intentional basic consent.
+ * Text content, photos and layout coordinates are never sent.
+ * Installing the tag does not prove Google-side receipt; that audit is out of scope.
+ */
+(() => {
+  "use strict";
+  const ID = "G-Z6WH0VTYBB",
+    KEY = "omochi-touch-analytics-consent",
+    URL_CANONICAL = "https://djnaoyaman.github.io/omochi-touch/",
+    status = document.getElementById("analyticsStatus"),
+    yes = document.getElementById("allowAnalytics"),
+    no = document.getElementById("denyAnalytics");
+  let choice = null,
+    started = false,
+    pageSent = false;
+  try {
+    choice = localStorage.getItem(KEY);
+  } catch {}
+  if (!["yes", "no"].includes(choice)) choice = null;
+  window["ga-disable-" + ID] = choice !== "yes";
+  function ui() {
+    yes.setAttribute("aria-pressed", String(choice === "yes"));
+    no.setAttribute("aria-pressed", String(choice === "no"));
+    status.textContent =
+      choice === "yes"
+        ? "アクセス計測 ON（Googleへの送信を許可）"
+        : choice === "no"
+          ? "アクセス計測 OFF（許可しない）"
+          : "アクセス計測 OFF（未選択）";
+  }
+  function g() {
+    window.dataLayer.push(arguments);
+  }
+  function page() {
+    if (choice !== "yes" || pageSent) return;
+    pageSent = true;
+    g("event", "page_view", {
+      send_to: ID,
+      page_location: URL_CANONICAL,
+      page_title: "OMOCHI TOUCH",
+      page_referrer: "",
+    });
+  }
+  function start() {
+    if (started) return;
+    started = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || g;
+    g("consent", "default", {
+      analytics_storage: "granted",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    g("js", new Date());
+    g("config", ID, {
+      send_page_view: false,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      page_location: URL_CANONICAL,
+      page_referrer: "",
+      cookie_prefix: "omochi_touch",
+    });
+    const script = document.createElement("script");
+    script.id = "omochi-google-tag";
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
+    script.onload = () => {
+      script.dataset.ready = "yes";
+      page();
+    };
+    script.onerror = () => {
+      status.textContent =
+        "計測の許可はONですが、Googleに接続できませんでした。制作機能はそのまま使えます。";
+    };
+    document.head.append(script);
+  }
+  function set(value) {
+    choice = value;
+    window["ga-disable-" + ID] = value !== "yes";
+    try {
+      localStorage.setItem(KEY, value);
+    } catch {}
+    ui();
+    if (value === "yes") {
+      start();
+      if (pageSent) return;
+      if (document.getElementById("omochi-google-tag")?.dataset.ready === "yes")
+        page();
+    }
+  }
+  yes.onclick = () => set("yes");
+  no.onclick = () => set("no");
+  function send(name, params = {}) {
+    if (choice !== "yes" || !started || window["ga-disable-" + ID]) return;
+    g("event", name, {
+      ...params,
+      send_to: ID,
+      page_location: URL_CANONICAL,
+      page_referrer: "",
+    });
+  }
+  const ints = {
+    art_select: ["art_id", 0, 23],
+    palette_select: ["palette_id", 0, 7],
+    photo_add: ["asset_id", 0, 99],
+    export_generated: ["item_count", 0, 60],
+  };
+  document.addEventListener("omochi-action", (event) => {
+    const d = event.detail || {},
+      rule = ints[d.name];
+    if (rule) {
+      const v = d[rule[0]];
+      if (Number.isInteger(v) && v >= rule[1] && v <= rule[2])
+        send(d.name, { [rule[0]]: v });
+      return;
+    }
+    if (["text_add", "text_update", "layer_duplicate"].includes(d.name))
+      send(d.name);
+  });
+  document.addEventListener("change", (event) => {
+    if (event.target.id === "track")
+      send("music_select", { selection_method: "list" });
+  });
+  document.addEventListener("click", (event) => {
+    const b = event.target.closest("button");
+    if (b && !b.disabled) {
+      if (b.closest("#musicSites"))
+        send("music_select", { selection_method: "collection" });
+      else if (["nextTrack", "prevTrack"].includes(b.id))
+        send("music_select", {
+          selection_method: b.id === "nextTrack" ? "next" : "previous",
+        });
+      else if (["stopTrack", "muteTrack"].includes(b.id))
+        send("music_control", {
+          control: b.id === "stopTrack" ? "stop_request" : "mute_request",
+        });
+      else if (b.id === "sfxToggle")
+        send("sound_toggle", {
+          enabled: b.getAttribute("aria-pressed") === "true" ? 1 : 0,
+        });
+    }
+    const a = event.target.closest("a");
+    if (!a) return;
+    const category =
+      { youtubeLink: "youtube", recordLink: "record", siteLink: "music_site" }[
+        a.id
+      ] || (a.classList.contains("credit-link") ? "credit" : null);
+    if (category) send("outbound_link", { destination: category });
+    if (a.id === "downloadLink") send("png_download_click");
+    if (a.id === "openImage") send("png_open_click");
+  });
+  ui();
+  if (choice === "yes") start();
+})();
