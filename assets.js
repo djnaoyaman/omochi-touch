@@ -75,7 +75,7 @@ const ASSETS = [
     alt: "オレンジ色の毛布に座るおもち",
   },
   {
-    src: "assets/OMOCHI_NEW_07_PHOTO.webp",
+    src: "assets/OMOCHI_NEW_07_PHOTO.webp?v=20261030-hires",
     label: "N07 / 舌をぺろりと出すおもち",
     mode: "photo",
     alt: "舌をぺろりと出すおもち",
