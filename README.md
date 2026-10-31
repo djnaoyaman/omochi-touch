@@ -4,7 +4,7 @@ An interactive art playground featuring OMOCHI. Twenty-four original procedural 
 
 Includes thirty selections from CRATE DIGGIN’, Premium Cuts Listed and SUBURBIA CLASSICA. A visible YouTube player loads without autoplay; playback starts when the visitor taps its native play button. Images are not uploaded. Music is not included in PNG exports.
 
-Credit: 鎌・くらんぽのクランポック
+Credit: 宮崎直哉 — https://djnaoyaman.github.io/profile.html
 
 Artwork is independently created, inspired by artistic movements; no official museum or movement-organization affiliation is claimed. OMOCHI photographs are non-generatively masked and color-adjusted without changing the subject's geometry. Photograph copyrights remain with their owner; repository visibility does not grant a license to reuse them. Nimbus Sans font license: `assets/FONT-LICENSE.txt`.
 
@@ -17,3 +17,4 @@ The user-provided Google tag (G-Z6WH0VTYBB) is directly installed in the HTML he
 Precise small cutouts have per-asset size caps to protect source detail (the added N05 and N04 silhouettes are limited to approximately280CSSpx on its longest side at the maximum canvas display size).
 
 Default cutout: original fourth cutout (cut11.png, stable asset index 9), shown first. Existing saved compositions retain their asset indices.
+

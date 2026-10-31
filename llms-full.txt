@@ -1,7 +1,7 @@
 # OMOCHI TOUCH — site guide
 
 Canonical URL: https://djnaoyaman.github.io/omochi-touch/
-Credit: 鎌・くらんぽのクランポック
+Credit: 宮崎直哉 — https://djnaoyaman.github.io/profile.html
 Credit website: https://djnaoyaman.github.io/kuranpo/
 Language: Japanese
 
@@ -16,3 +16,4 @@ Short optional UI sounds are synthesized locally and have an independent ON/OFF 
 All art templates are original compositions inspired by geometric, optical and organic design principles. Names referencing art movements do not imply institutional endorsement or official collaboration. Photographs are non-generatively color-adjusted and masked, not AI-redrawn. Copyright remains with the respective owners; public repository access is not a license to reuse photographs.
 
 The user-provided Google Analytics tag G-Z6WH0VTYBB is directly installed in the HTML head. The tag file loads on page open; visitors can stop collection in this browser, including a previously declined setting. Script loading itself continues when collection is disabled. Photo content, typed text, compositions and coordinates are not sent. Page views and allowlisted feature events are measured; image generation is not claimed to prove a device download and music selection is not claimed to prove playback. Visitors can change their choice in the privacy section. Advertising signals/personalization are disabled. No advertising campaign, paid placement or search-console registration is performed by this static site. The manifest provides icons and a home-screen name; offline use is not guaranteed and no service worker is installed.
+

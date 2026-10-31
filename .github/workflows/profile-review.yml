@@ -1,0 +1,23 @@
+name: Profile review
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python profile-check.py
+      - run: npm install --no-save --ignore-scripts playwright
+      - run: npx playwright install --with-deps chromium
+      - run: python -m http.server 8765 > /tmp/profile-server.log 2>&1 &
+      - run: node profile-browser.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: profile-review
+          path: profile-shots
